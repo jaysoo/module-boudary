@@ -24,6 +24,13 @@
           "watchDepsName": "watch-deps"
         }
       }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "exclude": ["libs/nx-packages/powerpack-legacy/**"],
+      "options": {
+        "targetName": "lint"
+      }
     }
   ]
 }

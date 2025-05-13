@@ -1,6 +1,19 @@
 {
-  "extends": "./tsconfig.base.json",
   "compileOnSave": false,
+  "include": [],
   "files": [],
-  "references": []
+  "exclude": ["node_modules", "tmp"],
+  "references": [
+    {
+      "path": "./packages/dual-entry-lazy-library"
+    },
+    {
+      "path": "./packages/lazy-loaded-library"
+    },
+    {
+      "path": "./packages/main-library"
+    }
+  ],
+  "extends": "./tsconfig.base.json",
+  "includes": []
 }

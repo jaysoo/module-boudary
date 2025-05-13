@@ -1,0 +1,15 @@
+{
+  "extends": ["../../.eslintrc", "../../.eslintrc.base.json"],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "!**/*"
+  ]
+}

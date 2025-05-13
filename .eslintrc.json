@@ -1,0 +1,86 @@
+{
+  "ignorePatterns": ["**/*", "**/out-tsc/**", "node_modules/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "_.*",
+            "varsIgnorePattern": "_.*"
+          }
+        ],
+        "no-restricted-imports": "off",
+        "@typescript-eslint/no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "classnames",
+                "importNames": ["default"],
+                "message": "Please use cx from `@nrwl-ocean/nx-cloud/ui-primitives` instead."
+              },
+              {
+                "name": "react",
+                "importNames": ["useLayoutEffect"],
+                "message": "Please use `useLayoutEffect` from `@nrwl-ocean/nx-cloud/ui-primitives` instead."
+              },
+              {
+                "name": "unique-names-generator",
+                "importNames": [
+                  "adjectives",
+                  "animals",
+                  "colors",
+                  "countries",
+                  "languages",
+                  "names",
+                  "starWars",
+                  "NumberDictionary"
+                ],
+                "message": "Please use the dictionaries from `@nrwl-ocean/shared/utils/unique-names-generator-dictionaries` instead."
+              }
+            ]
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "_.*",
+            "varsIgnorePattern": "_.*"
+          }
+        ]
+      }
+    },
+    {
+      "files": "*.json",
+      "parser": "jsonc-eslint-parser",
+      "rules": {}
+    }
+  ],
+  "extends": ["./.eslintrc.base.json"]
+}
